@@ -14,4 +14,6 @@ RUN make -C /app V=/vlang/v
 
 FROM debian:12-slim
 COPY --from=builder /app/echo_listen /app/echo_listen
+ARG ECHOLISTEN_HISTORY_ROUTE=/tmp/echolisten_history_route
+ENV ECHOLISTEN_HISTORY_ROUTE=${ECHOLISTEN_HISTORY_ROUTE}
 CMD [ "/app/echo_listen" ]
