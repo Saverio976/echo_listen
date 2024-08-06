@@ -2,6 +2,7 @@ module main
 
 import veb
 import os
+import time
 
 pub struct Context {
 	veb.Context
@@ -14,6 +15,7 @@ pub struct App {
 pub fn (app &App) history(mut ctx Context) veb.Result {
 	echo := 'STARTDELIM ------------------------------------------ ENDDELIM\n' +
 		'-------------------- ${ctx.ip()} ----------------------\n' +
+		'-------------------- date\n' + '${time.now()}\n' +
 		'-------------------- header\n' + '${ctx.req.header.str().trim('\n')}\n' +
 		'-------------------- data\n' + '${ctx.req.data.trim('\n')}\n' +
 		'------------------------------------------\n'
